@@ -5,3 +5,5 @@ Jinja2==3.0.3
 WTForms==2.3.3
 Flask-Session==0.4.0
 requests==2.26.0
+transformers==4.5.1
+wikipedia==1.4.0
