@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Text</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .form-section, .response-section, .wikipedia-section {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .prompt-form {
+            max-width: 100%;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .generated-text {
+            margin-top: 20px;
+        }
+
+        .tweet-link {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Generate Text</h1>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <form action="/generate" method="POST" class="prompt-form">
+                <label for="prompt">Enter your prompt:</label><br>
+                <input type="text" id="prompt" name="prompt" placeholder="Enter your prompt..."><br><br>
+                <button type="submit">Generate</button>
+            </form>
+        </section>
+
+        <!-- 生成されたテキストを表示 -->
+        {% if generated_text %}
+        <section class="response-section">
+            <div class="response">
+                <h2>Generated Text:</h2>
+                <p class="generated-text">{{ generated_text }}</p>
+                <a href="https://twitter.com/intent/tweet?text={{ generated_text }}" class="tweet-link">Tweet</a>
+            </div>
+        </section>
+        {% endif %}
+
+        <!-- Wikipediaからの関連情報を表示 -->
+        {% if wikipedia_text %}
+        <section class="wikipedia-section">
+            <div class="wikipedia-info">
+                <h2>Wikipedia Info:</h2>
+                <p>{{ wikipedia_text }}</p>
+            </div>
+        </section>
+        {% endif %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Generate Text App</p>
+    </footer>
+
+</body>
+</html>

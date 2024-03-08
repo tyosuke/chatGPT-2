@@ -1,0 +1,7 @@
+gunicorn==20.1.0
+Flask==2.1.1
+Werkzeug==2.0.2
+Jinja2==3.0.3
+WTForms==2.3.3
+Flask-Session==0.4.0
+requests==2.26.0
